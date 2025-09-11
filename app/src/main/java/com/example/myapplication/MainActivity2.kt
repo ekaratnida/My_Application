@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.widget.Button
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -20,13 +21,11 @@ class MainActivity2 : AppCompatActivity() {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
-    }
 
-    override fun onCreate(
-        savedInstanceState: Bundle?,
-        persistentState: PersistableBundle?
-    ) {
-        super.onCreate(savedInstanceState, persistentState)
+        val result = intent.getStringExtra("name")
+        val textView: TextView = findViewById(R.id.result_tv)
+        textView.text = result
+
     }
 
     override fun onRestart() {

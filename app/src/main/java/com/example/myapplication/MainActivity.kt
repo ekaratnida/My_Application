@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.EditText
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -31,6 +32,15 @@ class MainActivity : AppCompatActivity() {
             intent.setAction(android.content.Intent.ACTION_VIEW);
             intent.setType("image/*");
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent)
+        }
+
+        var sendDataBtn: Button = findViewById(R.id.sendDataBtn)
+        var editText: EditText = findViewById(R.id.editText)
+
+        sendDataBtn.setOnClickListener {
+            val intent = Intent(this, MainActivity2::class.java)
+            intent.putExtra("name", editText.text.toString())
             startActivity(intent)
         }
     }
